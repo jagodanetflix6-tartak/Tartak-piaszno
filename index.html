@@ -1,497 +1,473 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tartak Piaszno</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tartak Piaszno</title>
 
-<style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-body{
-font-family:'Montserrat',sans-serif;
-background:#050505;
-color:white;
-overflow-x:hidden;
-}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#050505;
+      color:#fff;
+      overflow-x:hidden;
+    }
 
-img{
-width:100%;
-display:block;
-}
+    a{
+      text-decoration:none;
+      color:white;
+    }
 
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999;
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.05);
-}
+    /* ================= HEADER ================= */
 
-nav{
-max-width:1450px;
-margin:auto;
-padding:26px 40px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
+    header{
+      width:100%;
+      height:100vh;
+      position:relative;
+      background:
+      linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+      url('https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=2070&auto=format&fit=crop') center/cover;
+    }
 
-.logo{
-font-size:34px;
-font-weight:800;
-letter-spacing:4px;
-color:#d9a15f;
-}
+    nav{
+      width:100%;
+      padding:35px 80px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      position:absolute;
+      top:0;
+      left:0;
+      z-index:10;
+    }
 
-nav ul{
-display:flex;
-gap:45px;
-list-style:none;
-}
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:45px;
+    }
 
-nav ul a{
-text-decoration:none;
-color:white;
-font-size:14px;
-font-weight:600;
-letter-spacing:2px;
-transition:0.3s;
-}
+    nav ul li a{
+      font-size:18px;
+      font-weight:500;
+      transition:.3s;
+      position:relative;
+    }
 
-nav ul a:hover{
-color:#d9a15f;
-}
+    nav ul li a:hover{
+      color:#d59a4a;
+    }
 
-.hero{
-min-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.75)),
-url('hero.jpg') center center/cover no-repeat;
-display:flex;
-align-items:center;
-padding:120px 70px 80px;
-position:relative;
-}
+    nav ul li a.active::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      width:100%;
+      height:2px;
+      background:#d59a4a;
+    }
 
-.hero::after{
-content:'';
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:180px;
-background:linear-gradient(to top,#050505,transparent);
-}
+    .hero{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      padding-left:80px;
+    }
 
-.hero-content{
-max-width:760px;
-position:relative;
-z-index:2;
-}
+    .logo-box{
+      max-width:420px;
+    }
 
-.hero-logo{
-width:340px;
-margin-bottom:45px;
-filter:drop-shadow(0 10px 25px rgba(0,0,0,0.5));
-border-radius:18px;
-}
+    .logo-icon{
+      width:170px;
+      height:170px;
+      border:6px solid #d59a4a;
+      border-radius:50%;
+      margin-bottom:25px;
+      position:relative;
+    }
 
-.hero h1{
-font-size:92px;
-line-height:0.95;
-font-weight:800;
-margin-bottom:28px;
-letter-spacing:-3px;
-}
+    .logo-icon::before{
+      content:'';
+      position:absolute;
+      inset:25px;
+      border:4px solid #d59a4a;
+      border-radius:50%;
+    }
 
-.hero h1 span{
-color:#d9a15f;
-}
+    .logo-box h1{
+      font-size:72px;
+      letter-spacing:8px;
+      font-weight:700;
+    }
 
-.hero p{
-font-size:22px;
-line-height:1.9;
-color:#d8d8d8;
-max-width:650px;
-margin-bottom:40px;
-}
+    .logo-box h2{
+      color:#d59a4a;
+      font-size:38px;
+      letter-spacing:6px;
+      font-weight:400;
+    }
 
-.hero-btn{
-display:inline-block;
-padding:18px 42px;
-background:#d9a15f;
-color:black;
-font-weight:700;
-text-decoration:none;
-letter-spacing:1px;
-border-radius:8px;
-transition:0.3s;
-}
+    .scroll{
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:42px;
+      color:white;
+    }
 
-.hero-btn:hover{
-transform:translateY(-3px);
-background:white;
-}
+    /* ================= ABOUT ================= */
 
-.section{
-padding:130px 40px;
-}
+    .about{
+      background:#050505;
+      padding:80px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
 
-.container{
-max-width:1450px;
-margin:auto;
-}
+    .about-text h2{
+      font-size:56px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
 
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:center;
-}
+    .about-text span{
+      color:#d59a4a;
+      display:block;
+    }
 
-.about-text h2{
-font-size:62px;
-line-height:1;
-margin-bottom:35px;
-}
+    .line{
+      width:70px;
+      height:3px;
+      background:#d59a4a;
+      margin:30px 0;
+    }
 
-.about-text h2 span{
-color:#d9a15f;
-}
+    .about-text p{
+      color:#d0d0d0;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:18px;
+    }
 
-.about-text p{
-font-size:19px;
-line-height:2;
-color:#d0d0d0;
-margin-bottom:25px;
-}
+    .icons{
+      display:flex;
+      gap:40px;
+      margin-top:50px;
+      flex-wrap:wrap;
+    }
 
-.stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-margin-top:50px;
-}
+    .icon-box{
+      text-align:center;
+    }
 
-.stat{
-background:#0c0c0c;
-border:1px solid rgba(217,161,95,0.15);
-padding:30px 20px;
-border-radius:16px;
-text-align:center;
-transition:0.3s;
-}
+    .icon{
+      width:70px;
+      height:70px;
+      border:2px solid #d59a4a;
+      margin:auto auto 15px;
+    }
 
-.stat:hover{
-transform:translateY(-5px);
-border-color:#d9a15f;
-}
+    .icon-box h4{
+      font-size:14px;
+      line-height:1.5;
+    }
 
-.stat h3{
-color:#d9a15f;
-font-size:20px;
-letter-spacing:1px;
-}
+    .about-image img{
+      width:100%;
+      border-radius:3px;
+    }
 
-.about-image img{
-height:700px;
-object-fit:cover;
-border-radius:18px;
-box-shadow:0 25px 80px rgba(0,0,0,0.5);
-}
+    /* ================= PRODUCTS ================= */
 
-.gallery-section{
-background:#090909;
-}
+    .products{
+      padding:70px 40px;
+      background:#050505;
+      border-top:1px solid #1b1b1b;
+    }
 
-.gallery-title{
-text-align:center;
-font-size:60px;
-margin-bottom:80px;
-}
+    .products h2{
+      text-align:center;
+      font-size:42px;
+      margin-bottom:50px;
+      letter-spacing:3px;
+    }
 
-.gallery-title span{
-color:#d9a15f;
-}
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:18px;
+    }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
+    .products-grid img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      transition:.4s;
+      cursor:pointer;
+    }
 
-.gallery img{
-height:340px;
-object-fit:cover;
-border-radius:18px;
-transition:0.4s;
-filter:contrast(1.05) saturate(1.1);
-}
+    .products-grid img:hover{
+      transform:scale(1.04);
+    }
 
-.gallery img:hover{
-transform:scale(1.02);
-}
+    /* ================= CONTACT ================= */
 
-.contact{
-display:grid;
-grid-template-columns:0.9fr 1.1fr;
-gap:40px;
-align-items:center;
-}
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 2fr;
+      margin-top:60px;
+      background:#050505;
+      border-top:1px solid #1b1b1b;
+    }
 
-.contact-box{
-background:#0c0c0c;
-padding:60px;
-border-radius:20px;
-border:1px solid rgba(217,161,95,0.15);
-}
+    .contact-info{
+      padding:60px;
+    }
 
-.contact-box h2{
-font-size:56px;
-margin-bottom:45px;
-color:#d9a15f;
-}
+    .contact-info h2{
+      font-size:42px;
+      margin-bottom:35px;
+    }
 
-.contact-item{
-margin-bottom:30px;
-font-size:24px;
-color:#e1e1e1;
-line-height:1.7;
-}
+    .contact-item{
+      margin-bottom:25px;
+      color:#ddd;
+      font-size:20px;
+    }
 
-iframe{
-width:100%;
-height:560px;
-border:none;
-border-radius:20px;
-}
+    .map iframe{
+      width:100%;
+      height:100%;
+      min-height:420px;
+      border:none;
+    }
 
-footer{
-padding:35px;
-text-align:center;
-background:black;
-color:#777;
-font-size:14px;
-border-top:1px solid rgba(255,255,255,0.05);
-}
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#111;
+      color:#bbb;
+      font-size:14px;
+    }
 
-@media(max-width:1100px){
+    /* ================= RESPONSIVE ================= */
 
-.hero h1{
-font-size:62px;
-}
+    @media(max-width:1100px){
 
-.about,
-.contact{
-grid-template-columns:1fr;
-}
+      .products-grid{
+        grid-template-columns:repeat(3,1fr);
+      }
 
-.gallery{
-grid-template-columns:repeat(2,1fr);
-}
+      .about{
+        grid-template-columns:1fr;
+      }
 
-.stats{
-grid-template-columns:repeat(2,1fr);
-}
+      .contact{
+        grid-template-columns:1fr;
+      }
+    }
 
-}
+    @media(max-width:768px){
 
-@media(max-width:700px){
+      nav{
+        padding:25px;
+      }
 
-nav{
-flex-direction:column;
-gap:20px;
-}
+      nav ul{
+        gap:20px;
+      }
 
-nav ul{
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
+      .hero{
+        padding:30px;
+      }
 
-.hero{
-padding:120px 25px 60px;
-text-align:center;
-}
+      .logo-box h1{
+        font-size:48px;
+      }
 
-.hero-logo{
-width:230px;
-margin:auto auto 35px;
-}
+      .logo-box h2{
+        font-size:26px;
+      }
 
-.hero h1{
-font-size:46px;
-}
+      .about{
+        padding:40px 25px;
+      }
 
-.hero p{
-font-size:18px;
-}
+      .about-text h2{
+        font-size:38px;
+      }
 
-.section{
-padding:90px 20px;
-}
+      .products-grid{
+        grid-template-columns:1fr;
+      }
 
-.about-text h2,
-.gallery-title,
-.contact-box h2{
-font-size:40px;
-}
+      .contact-info{
+        padding:40px 25px;
+      }
+    }
 
-.gallery{
-grid-template-columns:1fr;
-}
-
-.stats{
-grid-template-columns:1fr;
-}
-
-.contact-box{
-padding:35px;
-}
-
-.contact-item{
-font-size:18px;
-}
-
-}
-
-</style>
+  </style>
 </head>
 <body>
 
-<header>
-<nav>
-<div class="logo">TARTAK PIASZNO</div>
+  <!-- HEADER -->
 
-<ul>
-<li><a href="#home">START</a></li>
-<li><a href="#about">O NAS</a></li>
-<li><a href="#gallery">GALERIA</a></li>
-<li><a href="#contact">KONTAKT</a></li>
-</ul>
-</nav>
-</header>
+  <header>
 
-<section class="hero" id="home">
-<div class="hero-content">
+    <nav>
+      <ul>
+        <li><a href="#" class="active">STRONA GŁÓWNA</a></li>
+        <li><a href="#">PRODUKTY</a></li>
+        <li><a href="#">KONTAKT</a></li>
+      </ul>
+    </nav>
 
-<img src="logo.png" class="hero-logo">
+    <div class="hero">
 
-<h1>
-KONSTRUKCJE<br>
-<span>DREWNIANE</span>
-</h1>
+      <div class="logo-box">
 
-<p>
-Więźby dachowe, murłaty, łaty, deski,
-drewno konstrukcyjne i produkty tartaczne.
-</p>
+        <div class="logo-icon"></div>
 
-<a href="#contact" class="hero-btn">
-KONTAKT
-</a>
+        <h1>TARTAK</h1>
+        <h2>PIASZNO</h2>
 
-</div>
-</section>
+      </div>
 
-<section class="section" id="about">
-<div class="container about">
+    </div>
 
-<div class="about-text">
+    <div class="scroll">⌄</div>
 
-<h2>
-RODZINNY<br>
-<span>TARTAK</span>
-</h2>
+  </header>
 
-<p>
-Tartak Piaszno zajmuje się produkcją drewna konstrukcyjnego
-oraz konstrukcji drewnianych dla domów jednorodzinnych.
-</p>
+  <!-- ABOUT -->
 
-<p>
-Wieloletnie doświadczenie, solidne wykonanie i wysokiej jakości drewno.
-</p>
+  <section class="about">
 
-<div class="stats">
-<div class="stat"><h3>WIĘŹBY</h3></div>
-<div class="stat"><h3>ŁATY</h3></div>
-<div class="stat"><h3>MURŁATY</h3></div>
-<div class="stat"><h3>DESKI</h3></div>
-</div>
+    <div class="about-text">
 
-</div>
+      <h2>
+        KONSTRUKCJE DREWNIANE
+        <span>PRODUKTY TARTACZNE</span>
+      </h2>
 
-<div class="about-image">
-<img src="construction.jpg">
-</div>
+      <div class="line"></div>
 
-</div>
-</section>
+      <p>
+        Tartak Piaszno to rodzinna firma z wieloletnim doświadczeniem
+        w obróbce drewna. Specjalizujemy się w produkcji konstrukcji
+        drewnianych do domów jednorodzinnych.
+      </p>
 
-<section class="section gallery-section" id="gallery">
-<div class="container">
+      <p>
+        Stawiamy na jakość, dokładność i uczciwe podejście.
+      </p>
 
-<h2 class="gallery-title">
-NASZE <span>REALIZACJE</span>
-</h2>
+      <div class="icons">
 
-<div class="gallery">
-<img src="galery1.jpg">
-<img src="galery2.jpg">
-<img src="galery3.jpg">
-<img src="galery4.jpg">
-<img src="galery5.jpg">
-<img src="galery6.jpg">
-</div>
+        <div class="icon-box">
+          <div class="icon"></div>
+          <h4>WIĘŹBY<br>DACHOWE</h4>
+        </div>
 
-</div>
-</section>
+        <div class="icon-box">
+          <div class="icon"></div>
+          <h4>MURŁATY</h4>
+        </div>
 
-<section class="section" id="contact">
-<div class="container contact">
+        <div class="icon-box">
+          <div class="icon"></div>
+          <h4>ŁATY</h4>
+        </div>
 
-<div class="contact-box">
+        <div class="icon-box">
+          <div class="icon"></div>
+          <h4>DESKI<br>I BOAZERIA</h4>
+        </div>
 
-<h2>KONTAKT</h2>
+      </div>
 
-<div class="contact-item">
-📍 Piaszno, 77-133
-</div>
+    </div>
 
-<div class="contact-item">
-📞 507 939 337
-</div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop" alt="">
+    </div>
 
-<div class="contact-item">
-✉️ jacekplaku@wp.pl
-</div>
+  </section>
 
-<div class="contact-item">
-🕒 Pon–Pt: 8:00 – 16:00
-</div>
+  <!-- PRODUCTS -->
 
-</div>
+  <section class="products">
 
-<iframe src="https://maps.google.com/maps?q=Piaszno&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    <h2>NASZE PRODUKTY</h2>
 
-</div>
-</section>
+    <div class="products-grid">
 
-<footer>
-© 2024 Tartak Piaszno — Wszystkie prawa zastrzeżone.
-</footer>
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1518709414768-a88981a4515d?q=80&w=1974&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1974&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact">
+
+    <div class="contact-info">
+
+      <h2>KONTAKT</h2>
+
+      <div class="line"></div>
+
+      <div class="contact-item">
+        📍 Piaszno, 77-133
+      </div>
+
+      <div class="contact-item">
+        ☎ 507 939 337
+      </div>
+
+      <div class="contact-item">
+        ✉ jacekplaku@wp.pl
+      </div>
+
+      <div class="contact-item">
+        🕒 Pon - Pt: 8:00 - 16:00
+      </div>
+
+    </div>
+
+    <div class="map">
+
+      <iframe
+        src="https://www.google.com/maps?q=Piaszno%2077-133&output=embed">
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2024 Tartak Piaszno. Wszelkie prawa zastrzeżone.
+  </footer>
 
 </body>
 </html>
