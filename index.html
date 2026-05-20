@@ -1,473 +1,545 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tartak Piaszno</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+<title>Tartak Piaszno</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#050505;
+    color:white;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:10;
+    padding:42px 90px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:55px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:1px;
+    position:relative;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#c78b3f;
+}
+
+nav a.active{
+    color:#c78b3f;
+}
+
+nav a.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-14px;
+    width:100%;
+    height:2px;
+    background:#c78b3f;
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    padding-left:90px;
+}
+
+.logo-wrapper{
+    max-width:420px;
+}
+
+.logo-house{
+    width:170px;
+    height:120px;
+    border-top:8px solid #c78b3f;
+    border-left:8px solid #c78b3f;
+    border-right:8px solid #c78b3f;
+    transform:rotate(45deg);
+    margin-left:40px;
+    margin-bottom:60px;
+    position:relative;
+}
+
+.logo-circle{
+    width:110px;
+    height:110px;
+    border:5px solid #c78b3f;
+    border-radius:50%;
+    position:absolute;
+    top:45px;
+    left:22px;
+    transform:rotate(-45deg);
+}
+
+.logo-circle::before{
+    content:'';
+    position:absolute;
+    inset:14px;
+    border:4px solid #c78b3f;
+    border-radius:50%;
+}
+
+.logo-circle::after{
+    content:'';
+    position:absolute;
+    inset:32px;
+    border:3px solid #c78b3f;
+    border-radius:50%;
+}
+
+.logo-title{
+    font-size:82px;
+    font-weight:700;
+    letter-spacing:11px;
+    line-height:1;
+}
+
+.logo-sub{
+    color:#c78b3f;
+    font-size:44px;
+    letter-spacing:9px;
+    margin-top:12px;
+    font-weight:500;
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:48px;
+    color:white;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:#070707;
+    padding:85px 70px;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:55px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.about-left{
+    padding-right:30px;
+}
+
+.about-left h2{
+    font-size:64px;
+    line-height:1;
+    font-weight:800;
+    margin-bottom:14px;
+}
+
+.about-left h3{
+    color:#c78b3f;
+    font-size:36px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.gold-line{
+    width:65px;
+    height:3px;
+    background:#c78b3f;
+    margin-bottom:35px;
+}
+
+.about-left p{
+    color:#d3d3d3;
+    line-height:1.9;
+    font-size:18px;
+    margin-bottom:24px;
+}
+
+.features{
+    display:flex;
+    gap:38px;
+    margin-top:50px;
+    flex-wrap:wrap;
+}
+
+.feature{
+    text-align:center;
+}
+
+.feature-icon{
+    width:72px;
+    height:72px;
+    border:2px solid #c78b3f;
+    margin:auto;
+    margin-bottom:16px;
+}
+
+.feature span{
+    display:block;
+    font-size:15px;
+    line-height:1.5;
+    font-weight:600;
+}
+
+.about-right img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    padding:60px 25px 90px;
+    background:#070707;
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+.products-title{
+    text-align:center;
+    font-size:46px;
+    letter-spacing:4px;
+    margin-bottom:50px;
+    font-weight:700;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:14px;
+}
+
+.products-grid img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.products-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    background:#070707;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.contact-left{
+    padding:55px;
+}
+
+.contact-left h2{
+    font-size:42px;
+    margin-bottom:22px;
+    letter-spacing:2px;
+}
+
+.contact-item{
+    margin-bottom:26px;
+    color:#ddd;
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.contact-map iframe{
+    width:100%;
+    height:100%;
+    min-height:380px;
+    border:none;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:18px;
+    color:#aaa;
+    font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+    .products-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    body{
-      font-family:'Montserrat',sans-serif;
-      background:#050505;
-      color:#fff;
-      overflow-x:hidden;
+    .about{
+        grid-template-columns:1fr;
     }
 
-    a{
-      text-decoration:none;
-      color:white;
+    .contact{
+        grid-template-columns:1fr;
     }
+}
 
-    /* ================= HEADER ================= */
-
-    header{
-      width:100%;
-      height:100vh;
-      position:relative;
-      background:
-      linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-      url('https://images.unsplash.com/photo-1517420879524-86d64ac2f339?q=80&w=2070&auto=format&fit=crop') center/cover;
-    }
+@media(max-width:768px){
 
     nav{
-      width:100%;
-      padding:35px 80px;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      position:absolute;
-      top:0;
-      left:0;
-      z-index:10;
+        padding:30px;
+        justify-content:center;
     }
 
     nav ul{
-      display:flex;
-      list-style:none;
-      gap:45px;
+        gap:24px;
     }
 
-    nav ul li a{
-      font-size:18px;
-      font-weight:500;
-      transition:.3s;
-      position:relative;
+    nav a{
+        font-size:14px;
     }
 
-    nav ul li a:hover{
-      color:#d59a4a;
+    .hero-content{
+        padding:40px;
     }
 
-    nav ul li a.active::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-10px;
-      width:100%;
-      height:2px;
-      background:#d59a4a;
+    .logo-title{
+        font-size:52px;
     }
 
-    .hero{
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      padding-left:80px;
+    .logo-sub{
+        font-size:28px;
     }
-
-    .logo-box{
-      max-width:420px;
-    }
-
-    .logo-icon{
-      width:170px;
-      height:170px;
-      border:6px solid #d59a4a;
-      border-radius:50%;
-      margin-bottom:25px;
-      position:relative;
-    }
-
-    .logo-icon::before{
-      content:'';
-      position:absolute;
-      inset:25px;
-      border:4px solid #d59a4a;
-      border-radius:50%;
-    }
-
-    .logo-box h1{
-      font-size:72px;
-      letter-spacing:8px;
-      font-weight:700;
-    }
-
-    .logo-box h2{
-      color:#d59a4a;
-      font-size:38px;
-      letter-spacing:6px;
-      font-weight:400;
-    }
-
-    .scroll{
-      position:absolute;
-      bottom:30px;
-      left:50%;
-      transform:translateX(-50%);
-      font-size:42px;
-      color:white;
-    }
-
-    /* ================= ABOUT ================= */
 
     .about{
-      background:#050505;
-      padding:80px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
+        padding:50px 25px;
     }
 
-    .about-text h2{
-      font-size:56px;
-      line-height:1.1;
-      margin-bottom:20px;
+    .about-left h2{
+        font-size:42px;
     }
 
-    .about-text span{
-      color:#d59a4a;
-      display:block;
-    }
-
-    .line{
-      width:70px;
-      height:3px;
-      background:#d59a4a;
-      margin:30px 0;
-    }
-
-    .about-text p{
-      color:#d0d0d0;
-      line-height:1.8;
-      margin-bottom:25px;
-      font-size:18px;
-    }
-
-    .icons{
-      display:flex;
-      gap:40px;
-      margin-top:50px;
-      flex-wrap:wrap;
-    }
-
-    .icon-box{
-      text-align:center;
-    }
-
-    .icon{
-      width:70px;
-      height:70px;
-      border:2px solid #d59a4a;
-      margin:auto auto 15px;
-    }
-
-    .icon-box h4{
-      font-size:14px;
-      line-height:1.5;
-    }
-
-    .about-image img{
-      width:100%;
-      border-radius:3px;
-    }
-
-    /* ================= PRODUCTS ================= */
-
-    .products{
-      padding:70px 40px;
-      background:#050505;
-      border-top:1px solid #1b1b1b;
-    }
-
-    .products h2{
-      text-align:center;
-      font-size:42px;
-      margin-bottom:50px;
-      letter-spacing:3px;
+    .about-left h3{
+        font-size:26px;
     }
 
     .products-grid{
-      display:grid;
-      grid-template-columns:repeat(6,1fr);
-      gap:18px;
-    }
-
-    .products-grid img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      transition:.4s;
-      cursor:pointer;
-    }
-
-    .products-grid img:hover{
-      transform:scale(1.04);
-    }
-
-    /* ================= CONTACT ================= */
-
-    .contact{
-      display:grid;
-      grid-template-columns:1fr 2fr;
-      margin-top:60px;
-      background:#050505;
-      border-top:1px solid #1b1b1b;
-    }
-
-    .contact-info{
-      padding:60px;
-    }
-
-    .contact-info h2{
-      font-size:42px;
-      margin-bottom:35px;
-    }
-
-    .contact-item{
-      margin-bottom:25px;
-      color:#ddd;
-      font-size:20px;
-    }
-
-    .map iframe{
-      width:100%;
-      height:100%;
-      min-height:420px;
-      border:none;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#111;
-      color:#bbb;
-      font-size:14px;
-    }
-
-    /* ================= RESPONSIVE ================= */
-
-    @media(max-width:1100px){
-
-      .products-grid{
-        grid-template-columns:repeat(3,1fr);
-      }
-
-      .about{
         grid-template-columns:1fr;
-      }
-
-      .contact{
-        grid-template-columns:1fr;
-      }
     }
 
-    @media(max-width:768px){
-
-      nav{
-        padding:25px;
-      }
-
-      nav ul{
-        gap:20px;
-      }
-
-      .hero{
-        padding:30px;
-      }
-
-      .logo-box h1{
-        font-size:48px;
-      }
-
-      .logo-box h2{
-        font-size:26px;
-      }
-
-      .about{
-        padding:40px 25px;
-      }
-
-      .about-text h2{
-        font-size:38px;
-      }
-
-      .products-grid{
-        grid-template-columns:1fr;
-      }
-
-      .contact-info{
-        padding:40px 25px;
-      }
+    .contact-left{
+        padding:35px 25px;
     }
+}
 
-  </style>
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
+<!-- HERO -->
 
-  <header>
+<section class="hero">
 
     <nav>
-      <ul>
-        <li><a href="#" class="active">STRONA GŁÓWNA</a></li>
-        <li><a href="#">PRODUKTY</a></li>
-        <li><a href="#">KONTAKT</a></li>
-      </ul>
+        <ul>
+            <li><a href="#" class="active">STRONA GŁÓWNA</a></li>
+            <li><a href="#">PRODUKTY</a></li>
+            <li><a href="#">KONTAKT</a></li>
+        </ul>
     </nav>
 
-    <div class="hero">
+    <div class="hero-content">
 
-      <div class="logo-box">
+        <div class="logo-wrapper">
 
-        <div class="logo-icon"></div>
+            <div class="logo-house">
+                <div class="logo-circle"></div>
+            </div>
 
-        <h1>TARTAK</h1>
-        <h2>PIASZNO</h2>
+            <div class="logo-title">TARTAK</div>
+            <div class="logo-sub">PIASZNO</div>
 
-      </div>
+        </div>
 
     </div>
 
     <div class="scroll">⌄</div>
 
-  </header>
+</section>
 
-  <!-- ABOUT -->
+<!-- ABOUT -->
 
-  <section class="about">
+<section class="about">
 
-    <div class="about-text">
+    <div class="about-left">
 
-      <h2>
-        KONSTRUKCJE DREWNIANE
-        <span>PRODUKTY TARTACZNE</span>
-      </h2>
+        <h2>KONSTRUKCJE<br>DREWNIANE</h2>
 
-      <div class="line"></div>
+        <h3>PRODUKTY TARTACZNE</h3>
 
-      <p>
-        Tartak Piaszno to rodzinna firma z wieloletnim doświadczeniem
-        w obróbce drewna. Specjalizujemy się w produkcji konstrukcji
-        drewnianych do domów jednorodzinnych.
-      </p>
+        <div class="gold-line"></div>
 
-      <p>
-        Stawiamy na jakość, dokładność i uczciwe podejście.
-      </p>
+        <p>
+            Tartak Piaszno to rodzinna firma z wieloletnim
+            doświadczeniem w obróbce drewna.
+            Specjalizujemy się w produkcji konstrukcji
+            drewnianych do domów jednorodzinnych.
+        </p>
 
-      <div class="icons">
+        <p>
+            Stawiamy na jakość, dokładność i uczciwe podejście.
+        </p>
 
-        <div class="icon-box">
-          <div class="icon"></div>
-          <h4>WIĘŹBY<br>DACHOWE</h4>
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon"></div>
+                <span>WIĘŹBY<br>DACHOWE</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon"></div>
+                <span>MURŁATY</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon"></div>
+                <span>ŁATY</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon"></div>
+                <span>DESKI<br>I BOAZERIA</span>
+            </div>
+
         </div>
-
-        <div class="icon-box">
-          <div class="icon"></div>
-          <h4>MURŁATY</h4>
-        </div>
-
-        <div class="icon-box">
-          <div class="icon"></div>
-          <h4>ŁATY</h4>
-        </div>
-
-        <div class="icon-box">
-          <div class="icon"></div>
-          <h4>DESKI<br>I BOAZERIA</h4>
-        </div>
-
-      </div>
 
     </div>
 
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop" alt="">
+    <div class="about-right">
+
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop">
+
     </div>
 
-  </section>
+</section>
 
-  <!-- PRODUCTS -->
+<!-- PRODUCTS -->
 
-  <section class="products">
+<section class="products">
 
-    <h2>NASZE PRODUKTY</h2>
+    <div class="products-title">NASZE PRODUKTY</div>
+
+    <div class="gold-line" style="margin:auto auto 45px;"></div>
 
     <div class="products-grid">
 
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1518709414768-a88981a4515d?q=80&w=1974&auto=format&fit=crop">
-      <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=1974&auto=format&fit=crop">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=800&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=800&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=800&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?q=80&w=800&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1518709414768-a88981a4515d?q=80&w=800&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop">
 
     </div>
 
-  </section>
+</section>
 
-  <!-- CONTACT -->
+<!-- CONTACT -->
 
-  <section class="contact">
+<section class="contact">
 
-    <div class="contact-info">
+    <div class="contact-left">
 
-      <h2>KONTAKT</h2>
+        <h2>KONTAKT</h2>
 
-      <div class="line"></div>
+        <div class="gold-line"></div>
 
-      <div class="contact-item">
-        📍 Piaszno, 77-133
-      </div>
+        <div class="contact-item">
+            📍 Piaszno, 77-133
+        </div>
 
-      <div class="contact-item">
-        ☎ 507 939 337
-      </div>
+        <div class="contact-item">
+            ☎ 507 939 337
+        </div>
 
-      <div class="contact-item">
-        ✉ jacekplaku@wp.pl
-      </div>
+        <div class="contact-item">
+            ✉ jacekplaku@wp.pl
+        </div>
 
-      <div class="contact-item">
-        🕒 Pon - Pt: 8:00 - 16:00
-      </div>
+        <div class="contact-item">
+            🕒 Pon - Pt: 8:00 - 16:00
+        </div>
 
     </div>
 
-    <div class="map">
+    <div class="contact-map">
 
-      <iframe
+        <iframe
         src="https://www.google.com/maps?q=Piaszno%2077-133&output=embed">
-      </iframe>
+        </iframe>
 
     </div>
 
-  </section>
+</section>
 
-  <footer>
+<footer>
     © 2024 Tartak Piaszno. Wszelkie prawa zastrzeżone.
-  </footer>
+</footer>
 
 </body>
 </html>
