@@ -4,342 +4,389 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tartak Piaszno</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Montserrat',sans-serif;
-    background:#050505;
-    color:white;
-    overflow-x:hidden;
+font-family:'Montserrat',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+img{
+width:100%;
+display:block;
 }
 
 header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:999;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(8px);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 nav{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 40px;
+max-width:1450px;
+margin:auto;
+padding:26px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 .logo{
-    color:#d89c4a;
-    font-size:34px;
-    font-weight:700;
-    letter-spacing:4px;
+font-size:34px;
+font-weight:800;
+letter-spacing:4px;
+color:#d9a15f;
 }
 
 nav ul{
-    display:flex;
-    list-style:none;
-    gap:40px;
+display:flex;
+gap:45px;
+list-style:none;
 }
 
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:0.3s;
-    position:relative;
+nav ul a{
+text-decoration:none;
+color:white;
+font-size:14px;
+font-weight:600;
+letter-spacing:2px;
+transition:0.3s;
 }
 
-nav ul li a:hover{
-    color:#d89c4a;
+nav ul a:hover{
+color:#d9a15f;
 }
 
 .hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
-    url('hero.jpg') center center/cover no-repeat;
-    display:flex;
-    align-items:center;
-    padding:80px;
+min-height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.75)),
+url('hero.jpg') center center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:120px 70px 80px;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:180px;
+background:linear-gradient(to top,#050505,transparent);
 }
 
 .hero-content{
-    max-width:700px;
+max-width:760px;
+position:relative;
+z-index:2;
 }
 
 .hero-logo{
-    width:320px;
-    margin-bottom:40px;
-    filter:drop-shadow(0 0 15px rgba(0,0,0,0.5));
+width:340px;
+margin-bottom:45px;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+border-radius:18px;
 }
 
 .hero h1{
-    font-size:85px;
-    line-height:1;
-    margin-bottom:25px;
-    font-weight:700;
+font-size:92px;
+line-height:0.95;
+font-weight:800;
+margin-bottom:28px;
+letter-spacing:-3px;
 }
 
 .hero h1 span{
-    color:#d89c4a;
+color:#d9a15f;
 }
 
 .hero p{
-    font-size:22px;
-    line-height:1.8;
-    color:#ddd;
-    margin-bottom:35px;
+font-size:22px;
+line-height:1.9;
+color:#d8d8d8;
+max-width:650px;
+margin-bottom:40px;
 }
 
-.btn{
-    display:inline-block;
-    padding:18px 40px;
-    background:#d89c4a;
-    color:black;
-    text-decoration:none;
-    font-weight:700;
-    border-radius:6px;
-    transition:0.3s;
+.hero-btn{
+display:inline-block;
+padding:18px 42px;
+background:#d9a15f;
+color:black;
+font-weight:700;
+text-decoration:none;
+letter-spacing:1px;
+border-radius:8px;
+transition:0.3s;
 }
 
-.btn:hover{
-    background:white;
-    transform:translateY(-2px);
+.hero-btn:hover{
+transform:translateY(-3px);
+background:white;
 }
 
 .section{
-    padding:120px 40px;
+padding:130px 40px;
 }
 
 .container{
-    max-width:1400px;
-    margin:auto;
+max-width:1450px;
+margin:auto;
 }
 
 .about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
 }
 
 .about-text h2{
-    font-size:58px;
-    margin-bottom:25px;
-    line-height:1.1;
+font-size:62px;
+line-height:1;
+margin-bottom:35px;
 }
 
 .about-text h2 span{
-    color:#d89c4a;
+color:#d9a15f;
 }
 
 .about-text p{
-    font-size:19px;
-    line-height:1.9;
-    color:#d0d0d0;
-    margin-bottom:25px;
+font-size:19px;
+line-height:2;
+color:#d0d0d0;
+margin-bottom:25px;
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    margin-top:40px;
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-top:50px;
 }
 
-.feature{
-    text-align:center;
-    padding:20px;
-    border:1px solid rgba(216,156,74,0.2);
-    border-radius:10px;
-    background:#0d0d0d;
-    transition:0.3s;
+.stat{
+background:#0c0c0c;
+border:1px solid rgba(217,161,95,0.15);
+padding:30px 20px;
+border-radius:16px;
+text-align:center;
+transition:0.3s;
 }
 
-.feature:hover{
-    transform:translateY(-5px);
-    border-color:#d89c4a;
+.stat:hover{
+transform:translateY(-5px);
+border-color:#d9a15f;
 }
 
-.feature h3{
-    color:#d89c4a;
-    margin-top:15px;
-    font-size:18px;
+.stat h3{
+color:#d9a15f;
+font-size:20px;
+letter-spacing:1px;
 }
 
 .about-image img{
-    width:100%;
-    border-radius:15px;
+height:700px;
+object-fit:cover;
+border-radius:18px;
+box-shadow:0 25px 80px rgba(0,0,0,0.5);
+}
+
+.gallery-section{
+background:#090909;
 }
 
 .gallery-title{
-    text-align:center;
-    font-size:52px;
-    margin-bottom:70px;
+text-align:center;
+font-size:60px;
+margin-bottom:80px;
 }
 
 .gallery-title span{
-    color:#d89c4a;
+color:#d9a15f;
 }
 
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
 }
 
 .gallery img{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-    border-radius:12px;
-    transition:0.4s;
+height:340px;
+object-fit:cover;
+border-radius:18px;
+transition:0.4s;
+filter:contrast(1.05) saturate(1.1);
 }
 
 .gallery img:hover{
-    transform:scale(1.03);
+transform:scale(1.02);
 }
 
 .contact{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
+display:grid;
+grid-template-columns:0.9fr 1.1fr;
+gap:40px;
+align-items:center;
 }
 
 .contact-box{
-    background:#0d0d0d;
-    padding:50px;
-    border-radius:15px;
-    border:1px solid rgba(216,156,74,0.2);
+background:#0c0c0c;
+padding:60px;
+border-radius:20px;
+border:1px solid rgba(217,161,95,0.15);
 }
 
 .contact-box h2{
-    font-size:50px;
-    margin-bottom:35px;
-    color:#d89c4a;
+font-size:56px;
+margin-bottom:45px;
+color:#d9a15f;
 }
 
 .contact-item{
-    margin-bottom:25px;
-    font-size:22px;
-    color:#ddd;
+margin-bottom:30px;
+font-size:24px;
+color:#e1e1e1;
+line-height:1.7;
 }
 
 iframe{
-    width:100%;
-    height:500px;
-    border:none;
-    border-radius:15px;
+width:100%;
+height:560px;
+border:none;
+border-radius:20px;
 }
 
 footer{
-    background:black;
-    text-align:center;
-    padding:30px;
-    color:#888;
-    font-size:15px;
+padding:35px;
+text-align:center;
+background:black;
+color:#777;
+font-size:14px;
+border-top:1px solid rgba(255,255,255,0.05);
 }
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
-    .hero{
-        padding:40px;
-    }
+.hero h1{
+font-size:62px;
+}
 
-    .hero h1{
-        font-size:55px;
-    }
+.about,
+.contact{
+grid-template-columns:1fr;
+}
 
-    .about,
-    .contact{
-        grid-template-columns:1fr;
-    }
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    nav{
-        flex-direction:column;
-        gap:20px;
-    }
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
 
 }
 
 @media(max-width:700px){
 
-    .hero{
-        text-align:center;
-    }
+nav{
+flex-direction:column;
+gap:20px;
+}
 
-    .hero-logo{
-        width:220px;
-    }
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
 
-    .hero h1{
-        font-size:42px;
-    }
+.hero{
+padding:120px 25px 60px;
+text-align:center;
+}
 
-    .hero p{
-        font-size:18px;
-    }
+.hero-logo{
+width:230px;
+margin:auto auto 35px;
+}
 
-    .features{
-        grid-template-columns:1fr;
-    }
+.hero h1{
+font-size:46px;
+}
 
-    nav ul{
-        gap:18px;
-        flex-wrap:wrap;
-        justify-content:center;
-    }
+.hero p{
+font-size:18px;
+}
+
+.section{
+padding:90px 20px;
+}
+
+.about-text h2,
+.gallery-title,
+.contact-box h2{
+font-size:40px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.contact-box{
+padding:35px;
+}
+
+.contact-item{
+font-size:18px;
+}
 
 }
 
 </style>
 </head>
-
 <body>
 
 <header>
-
 <nav>
-
-<div class="logo">
-TARTAK PIASZNO
-</div>
+<div class="logo">TARTAK PIASZNO</div>
 
 <ul>
-<li><a href="#home">STRONA GŁÓWNA</a></li>
-<li><a href="#about">PRODUKTY</a></li>
+<li><a href="#home">START</a></li>
+<li><a href="#about">O NAS</a></li>
 <li><a href="#gallery">GALERIA</a></li>
 <li><a href="#contact">KONTAKT</a></li>
 </ul>
-
 </nav>
-
 </header>
 
 <section class="hero" id="home">
-
 <div class="hero-content">
 
-<img src="hero.jpg" class="hero-logo">
+<img src="logo.png" class="hero-logo">
 
 <h1>
 KONSTRUKCJE<br>
@@ -347,58 +394,41 @@ KONSTRUKCJE<br>
 </h1>
 
 <p>
-Produkujemy wysokiej jakości drewno konstrukcyjne,
-więźby dachowe, łaty, murłaty i deski.
-Stawiamy na jakość, dokładność i terminowość.
+Więźby dachowe, murłaty, łaty, deski,
+drewno konstrukcyjne i produkty tartaczne.
 </p>
 
-<a href="#contact" class="btn">
-SKONTAKTUJ SIĘ
+<a href="#contact" class="hero-btn">
+KONTAKT
 </a>
 
 </div>
-
 </section>
 
 <section class="section" id="about">
-
 <div class="container about">
 
 <div class="about-text">
 
 <h2>
-PRODUKTY<br>
-<span>TARTACZNE</span>
+RODZINNY<br>
+<span>TARTAK</span>
 </h2>
 
 <p>
-Tartak Piaszno to rodzinna firma z wieloletnim doświadczeniem
-w obróbce drewna i produkcji konstrukcji drewnianych.
+Tartak Piaszno zajmuje się produkcją drewna konstrukcyjnego
+oraz konstrukcji drewnianych dla domów jednorodzinnych.
 </p>
 
 <p>
-Specjalizujemy się w produkcji więźb dachowych,
-łat, kontrłat, desek, murłat i drewna konstrukcyjnego.
+Wieloletnie doświadczenie, solidne wykonanie i wysokiej jakości drewno.
 </p>
 
-<div class="features">
-
-<div class="feature">
-<h3>WIĘŹBY</h3>
-</div>
-
-<div class="feature">
-<h3>MURŁATY</h3>
-</div>
-
-<div class="feature">
-<h3>ŁATY</h3>
-</div>
-
-<div class="feature">
-<h3>DESKI</h3>
-</div>
-
+<div class="stats">
+<div class="stat"><h3>WIĘŹBY</h3></div>
+<div class="stat"><h3>ŁATY</h3></div>
+<div class="stat"><h3>MURŁATY</h3></div>
+<div class="stat"><h3>DESKI</h3></div>
 </div>
 
 </div>
@@ -408,34 +438,28 @@ Specjalizujemy się w produkcji więźb dachowych,
 </div>
 
 </div>
-
 </section>
 
-<section class="section" id="gallery">
-
+<section class="section gallery-section" id="gallery">
 <div class="container">
 
 <h2 class="gallery-title">
-NASZE <span>PRODUKTY</span>
+NASZE <span>REALIZACJE</span>
 </h2>
 
 <div class="gallery">
-
 <img src="galery1.jpg">
 <img src="galery2.jpg">
 <img src="galery3.jpg">
 <img src="galery4.jpg">
 <img src="galery5.jpg">
 <img src="galery6.jpg">
-
 </div>
 
 </div>
-
 </section>
 
 <section class="section" id="contact">
-
 <div class="container contact">
 
 <div class="contact-box">
@@ -460,16 +484,13 @@ NASZE <span>PRODUKTY</span>
 
 </div>
 
-<iframe
-src="https://maps.google.com/maps?q=Piaszno&t=&z=13&ie=UTF8&iwloc=&output=embed">
-</iframe>
+<iframe src="https://maps.google.com/maps?q=Piaszno&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 
 </div>
-
 </section>
 
 <footer>
-© 2024 Tartak Piaszno — Wszelkie prawa zastrzeżone.
+© 2024 Tartak Piaszno — Wszystkie prawa zastrzeżone.
 </footer>
 
 </body>
